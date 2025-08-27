@@ -26,7 +26,7 @@ export const ExperienceSection = () => {
     ];
   
     return (
-      <section ref={ref} id="experience" className="scroll-animation py-20 bg-muted/50">
+      <section ref={ref} id="experience" className="scroll-animation py-20 bg-muted/50 min-h-screen flex items-center">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">Experience</h2>
           <div className="relative border-l-2 border-primary/20 pl-6 space-y-12">

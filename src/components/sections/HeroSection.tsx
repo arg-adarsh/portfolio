@@ -9,7 +9,7 @@ export const HeroSection = () => {
     const ref = useRef<HTMLElement>(null);
     useScrollAnimation(ref);
     return (
-    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center gap-10 lg:min-h-screen py-20 md:py-32">
+    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center gap-10 min-h-screen py-20 md:py-32">
       <div className="text-center lg:text-start space-y-6">
         <main className="text-4xl md:text-6xl font-bold">
           <h1 className="inline">
@@ -47,4 +47,5 @@ export const HeroSection = () => {
       </div>
       <div className="absolute h-full max-h-[500px] w-full max-w-[500px] bg-purple-700/50 rounded-full -z-10 blur-3xl" />
     </section>
-)};
+);
+}
