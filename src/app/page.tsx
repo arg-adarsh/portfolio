@@ -8,8 +8,11 @@ import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useRef, useState } from 'react';
-import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins, FaDatabase } from 'react-icons/fa';
-import { SiDotnet, SiTailwindcss, SiKubernetes, SiJavascript } from 'react-icons/si';
+import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins, FaAws, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { SiDotnet, SiTailwindcss, SiKubernetes, SiJavascript, SiFirebase, SiRabbitmq } from 'react-icons/si';
+import { GrMysql } from "react-icons/gr";
+import { VscJson } from "react-icons/vsc";
+import { GoGear } from "react-icons/go";
 
 
 const Navbar = () => {
@@ -96,10 +99,10 @@ const HeroSection = () => {
 
       <div className="z-10 order-first lg:order-last">
          <Image 
-            src="https://picsum.photos/600/600"
+            src="https://picsum.photos/800/800"
             alt="Adarsh Raj Gautam"
-            width={600}
-            height={600}
+            width={800}
+            height={800}
             className="rounded-lg shadow-2xl w-full max-w-[400px] lg:max-w-[600px]"
             data-ai-hint="professional portrait"
           />
@@ -125,7 +128,7 @@ const WhatIDoSection = () => {
             </CardHeader>
             <CardContent className="mt-2 p-0">
               <p className="text-muted-foreground">
-                I build robust and scalable backend systems using C# and .NET Core, with experience in creating microservices and REST APIs.
+                I build robust and scalable backend systems using C#, Java and .NET Core, with experience in creating microservices and REST APIs.
               </p>
             </CardContent>
           </Card>
@@ -165,8 +168,11 @@ const SkillsSection = () => {
     useScrollAnimation(ref);
 
     const skills = [
-      { name: "Java", icon: <FaJava size={32} /> },
-      { name: "Javascript", icon: <SiJavascript size={32} /> },
+      { name: "React", icon: <FaReact size={32} /> },
+      { name: "JavaScript", icon: <SiJavascript size={32} /> },
+      { name: "HTML5", icon: <FaHtml5 size={32} /> },
+      { name: "CSS3", icon: <FaCss3Alt size={32} /> },
+      { name: "Firebase", icon: <SiFirebase size={32} /> },
       { name: "C#", icon: (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="32" height="32" fill="currentColor">
             <path d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/>
@@ -175,14 +181,17 @@ const SkillsSection = () => {
           </svg>
         ) 
       },
-      { name: ".NET", icon: <SiDotnet size={32} /> },
-      { name: "React", icon: <FaReact size={32} /> },
-      { name: "SQL Server", icon: <FaDatabase size={32} /> },
-      { name: "Git", icon: <FaGitAlt size={32} /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
+      { name: ".NET Core", icon: <SiDotnet size={32} /> },
+      { name: "Java", icon: <FaJava size={32} /> },
+      { name: "SQL", icon: <GrMysql size={32} /> },
+      { name: "REST APIs", icon: <VscJson size={32} /> },
       { name: "Docker", icon: <FaDocker size={32} /> },
       { name: "Kubernetes", icon: <SiKubernetes size={32} /> },
       { name: "Jenkins", icon: <FaJenkins size={32} /> },
+      { name: "Git", icon: <FaGitAlt size={32} /> },
+      { name: "AWS S3", icon: <FaAws size={32} /> },
+      { name: "RabbitMQ", icon: <SiRabbitmq size={32} /> },
+      { name: "Microservices", icon: <GoGear size={32} /> },
     ];
     
     return (
@@ -191,11 +200,11 @@ const SkillsSection = () => {
                 <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">Skills</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
                     {skills.map(skill => (
-                         <div key={skill.name} className="flex flex-col items-center justify-center gap-2 p-4 bg-card rounded-lg shadow-md transform transition-transform hover:scale-110">
+                         <div key={skill.name} className="flex flex-col items-center justify-center gap-2 p-4 bg-card rounded-lg shadow-md transform transition-transform hover:scale-110 h-32 w-32">
                            <div className="w-16 h-16 flex items-center justify-center text-primary">
                             {skill.icon}
                            </div>
-                           <p className="text-md font-medium text-foreground">{skill.name}</p>
+                           <p className="text-md font-medium text-foreground text-center">{skill.name}</p>
                         </div>
                     ))}
                 </div>
@@ -210,24 +219,17 @@ const ExperienceSection = () => {
   
     const experiences = [
       {
-        company: "Company Name",
-        role: "Software Engineer",
-        period: "Jan 2022 - Present",
+        company: "Medi Assist Healthcare",
+        role: "Software Engineer L1",
+        period: "Jul 2024 - Present",
+        location: "Bangalore, India",
         description: [
-          "Developed and maintained web applications using C# and .NET Core, resulting in a 20% improvement in performance.",
-          "Collaborated with cross-functional teams to design and implement new features.",
-          "Wrote clean, scalable, and well-documented code.",
-          "Participated in code reviews to maintain high-quality code standards."
-        ]
-      },
-       {
-        company: "Another Company",
-        role: "Junior Software Engineer",
-        period: "Jun 2020 - Dec 2021",
-        description: [
-          "Assisted in the development of a new RESTful API.",
-          "Fixed bugs and improved application performance.",
-          "Gained experience with Agile development methodologies."
+          "Developed a distributed batch processing system to process Excel data, reducing manual input by 95% and improving onboarding speed by 90%.",
+          "Reduced infra cost by 70% and tripled log retrieval speed by migrating logs to AWS S3.",
+          "Eliminated manual uploads via automated FTP ingestion and daily client summary emails.",
+          "Cut deployment time (10min → <1min) and reduced errors by 99.99% via Jenkins, Docker, Kubernetes automation.",
+          "Boosted QA coverage by 100% via automated OTP routing for authentication testing.",
+          "Enabled high-volume onboarding via RabbitMQ queues and batched SQL updates to avoid table locks."
         ]
       },
     ];
@@ -246,7 +248,7 @@ const ExperienceSection = () => {
                      <div className="flex flex-col sm:flex-row justify-between items-start">
                         <div className="mb-2 sm:mb-0">
                             <h3 className="text-xl font-bold">{exp.role}</h3>
-                            <p className="text-muted-foreground">{exp.company}</p>
+                            <p className="text-muted-foreground">{exp.company} - {exp.location}</p>
                         </div>
                         <p className="text-sm text-muted-foreground">{exp.period}</p>
                      </div>
@@ -282,16 +284,16 @@ const ProjectsSection = () => {
                                <h3 className="text-xl font-bold">Expense Tracker</h3>
                                <p className="text-sm text-muted-foreground">React, .NET Core, SQL Server, JWT</p>
                             </div>
-                            <a href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer">
                                 <Github className="w-5 h-5 hover:text-primary" />
                             </a>
                         </div>
                     </CardHeader>
                     <CardContent className="flex-grow">
                         <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                            <li>Designed full-stack architecture with React frontend, .NET Core APIs, and SQL Server backend.</li>
-                            <li>Implemented secure JWT-based authentication with role-based access control.</li>
-                            <li>Built real-time expense insights with interactive charts for financial tracking.</li>
+                            <li>Designed a modular full-stack architecture with React frontend, .NET Core APIs, and SQL Server backend.</li>
+                            <li>Implemented secure JWT-based authentication with role-based access control for multi-user workflows.</li>
+                            <li>Built interactive charts for real-time expense insights, improving usability and financial tracking accuracy.</li>
                         </ul>
                     </CardContent>
                 </Card>
@@ -302,16 +304,16 @@ const ProjectsSection = () => {
                                <h3 className="text-xl font-bold">Chat App</h3>
                                <p className="text-sm text-muted-foreground">React, Firebase</p>
                             </div>
-                            <a href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer">
                                 <Github className="w-5 h-5 hover:text-primary" />
                             </a>
                         </div>
                     </CardHeader>
                     <CardContent className="flex-grow">
                         <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                            <li>Built a scalable chat application handling 10,000+ concurrent users.</li>
-                            <li>Integrated Firebase Authentication for secure login (99.9% uptime).</li>
-                            <li>Enabled group chats and real-time media sharing to boost engagement.</li>
+                            <li>Engineered a scalable real-time chat application capable of handling over 10,000 concurrent connections.</li>
+                            <li>Integrated Firebase Authentication to ensure secure login with 99.9% uptime.</li>
+                            <li>Enabled group chats and real-time media sharing to increase user engagement.</li>
                         </ul>
                     </CardContent>
                 </Card>
@@ -319,7 +321,7 @@ const ProjectsSection = () => {
                     <CardHeader>
                         <div className="flex justify-between items-center">
                             <div>
-                               <h3 className="text-xl font-bold">Web Set Hun (Team)</h3>
+                               <h3 className="text-xl font-bold">Web Set Hun (Team Project)</h3>
                                <p className="text-sm text-muted-foreground">HTML, CSS, JavaScript</p>
                             </div>
                            <a href="https://swanirbhar.in/" target="_blank" rel="noopener noreferrer">
@@ -329,9 +331,9 @@ const ProjectsSection = () => {
                     </CardHeader>
                     <CardContent className="flex-grow">
                         <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                            <li>Collaborated on redesigning and developing homepage of a social initiative website.</li>
-                            <li>Enhanced UI/UX with responsive design, animations, and dark mode.</li>
-                            <li>Improved performance and engagement via CSS/JavaScript optimizations.</li>
+                            <li>Collaborated in a team to redesign and develop the homepage of a social initiative website.</li>
+                            <li>Revamped UI/UX with responsive design, animations, and dark mode for better accessibility.</li>
+                            <li>Improved website performance and engagement by optimizing CSS and JavaScript.</li>
                         </ul>
                     </CardContent>
                 </Card>
