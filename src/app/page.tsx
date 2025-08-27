@@ -1,8 +1,10 @@
 
 'use client';
 import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
-import { Card, CardContent, CardHeader, Typography, Box, Grid, TextField } from '@mui/material';
-import { Button, IconButton } from '@mui/material';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useRef } from 'react';
@@ -20,12 +22,16 @@ const Navbar = () => (
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience">Experience</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact">Contact</a>
-        <IconButton href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" color="primary">
-            <Github className="h-4 w-4" />
-        </IconButton>
-        <IconButton href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" color="primary">
-            <Linkedin className="h-4 w-4" />
-        </IconButton>
+        <Button variant="outline" size="icon" asChild>
+            <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-4 w-4" />
+            </a>
+        </Button>
+         <Button variant="outline" size="icon" asChild>
+            <a href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+            </a>
+        </Button>
       </nav>
     </div>
   </header>
@@ -54,7 +60,7 @@ const HeroSection = () => {
         </p>
 
         <div className="space-y-4 md:space-y-0 md:space-x-4">
-          <Button variant="contained" href="#contact" sx={{ width: { xs: '100%', md: '33%' } }}>Contact Me</Button>
+          <Button className="w-full md:w-1/3" asChild><a href="#contact">Contact Me</a></Button>
         </div>
       </div>
 
@@ -76,62 +82,50 @@ const WhatIDoSection = () => {
   const ref = useRef<HTMLElement>(null);
   useScrollAnimation(ref);
   return (
-  <section ref={ref} id="what-i-do" className="scroll-animation py-20 bg-background">
+  <section ref={ref} id="what-i-do" className="scroll-animation py-20 bg-muted/50">
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-center text-4xl font-bold text-primary mb-12">What I Do</h2>
-      <Grid container spacing={4} justifyContent="center">
-        <Grid item xs={12} md={4}>
-          <Card sx={{ textAlign: 'center', p: 2 }}>
-            <CardHeader
-              avatar={
-                <Box sx={{ mx: 'auto', bgcolor: 'primary.light', p: 2, borderRadius: '50%', width: 'fit-content' }}>
-                  <Server className="h-8 w-8 text-primary" />
-                </Box>
-              }
-              title={<Typography variant="h5" component="div">Backend Development</Typography>}
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="text-center p-6">
+            <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+              <Server className="h-8 w-8 text-primary" />
+            </div>
+            <CardHeader className="p-0">
+                <h3 className="text-xl font-bold">Backend Development</h3>
+            </CardHeader>
+            <CardContent className="mt-2 p-0">
+              <p className="text-muted-foreground">
                 I build robust and scalable backend systems using C# and .NET Core, with experience in creating microservices and REST APIs.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Card sx={{ textAlign: 'center', p: 2 }}>
-            <CardHeader
-              avatar={
-                <Box sx={{ mx: 'auto', bgcolor: 'primary.light', p: 2, borderRadius: '50%', width: 'fit-content' }}>
-                  <Brush className="h-8 w-8 text-primary" />
-                </Box>
-              }
-              title={<Typography variant="h5" component="div">Frontend Development</Typography>}
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
+           <Card className="text-center p-6">
+            <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+              <Brush className="h-8 w-8 text-primary" />
+            </div>
+            <CardHeader className="p-0">
+                <h3 className="text-xl font-bold">Frontend Development</h3>
+            </CardHeader>
+            <CardContent className="mt-2 p-0">
+              <p className="text-muted-foreground">
                 I create modern and responsive user interfaces with React, ensuring a great user experience across devices.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Card sx={{ textAlign: 'center', p: 2 }}>
-            <CardHeader
-              avatar={
-                <Box sx={{ mx: 'auto', bgcolor: 'primary.light', p: 2, borderRadius: '50%', width: 'fit-content' }}>
-                  <PenTool className="h-8 w-8 text-primary" />
-                </Box>
-              }
-              title={<Typography variant="h5" component="div">System Design & DevOps</Typography>}
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
+           <Card className="text-center p-6">
+            <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+              <PenTool className="h-8 w-8 text-primary" />
+            </div>
+            <CardHeader className="p-0">
+                <h3 className="text-xl font-bold">System Design & DevOps</h3>
+            </CardHeader>
+            <CardContent className="mt-2 p-0">
+              <p className="text-muted-foreground">
                 I design distributed systems and automate deployments with Docker, Kubernetes, and Jenkins to improve efficiency and reduce errors.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
-        </Grid>
-      </Grid>
+      </div>
     </div>
   </section>
 )};
@@ -155,7 +149,7 @@ const SkillsSection = () => {
     ];
     
     return (
-        <section ref={ref} id="skills" className="scroll-animation py-20 bg-background">
+        <section ref={ref} id="skills" className="scroll-animation py-20">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <h2 className="text-center text-4xl font-bold text-primary mb-12">Skills</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
@@ -202,7 +196,7 @@ const ExperienceSection = () => {
     ];
   
     return (
-      <section ref={ref} id="experience" className="scroll-animation py-20 bg-background">
+      <section ref={ref} id="experience" className="scroll-animation py-20 bg-muted/50">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-4xl font-bold text-primary mb-12">Experience</h2>
           <div className="relative border-l-2 border-primary/20 pl-6 space-y-12">
@@ -211,14 +205,18 @@ const ExperienceSection = () => {
               <div key={index} className="relative">
                  <div className="absolute -left-[33px] top-1.5 h-4 w-4 rounded-full bg-primary ring-8 ring-background" />
                 <Card>
-                  <CardHeader
-                    title={<Typography variant="h6">{exp.role}</Typography>}
-                    subheader={exp.company}
-                    action={<Typography variant="body2" color="text.secondary">{exp.period}</Typography>}
-                  />
+                  <CardHeader>
+                     <div className="flex justify-between items-start">
+                        <div>
+                            <h3 className="text-xl font-bold">{exp.role}</h3>
+                            <p className="text-muted-foreground">{exp.company}</p>
+                        </div>
+                        <p className="text-sm text-muted-foreground">{exp.period}</p>
+                     </div>
+                  </CardHeader>
                   <CardContent>
                     <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                      {exp.description.map((item, i) => <li key={i}><Typography variant="body2">{item}</Typography></li>)}
+                      {exp.description.map((item, i) => <li key={i}>{item}</li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -236,71 +234,71 @@ const ProjectsSection = () => {
   useScrollAnimation(ref);
 
   return (
-    <section ref={ref} id="projects" className="scroll-animation py-20 bg-background">
+    <section ref={ref} id="projects" className="scroll-animation py-20">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center text-4xl font-bold text-primary mb-12">Projects</h2>
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={4}>
-                    <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                        <CardHeader 
-                            title="Expense Tracker"
-                            subheader="React, .NET Core, SQL Server, JWT"
-                            action={
-                                <IconButton href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
-                                    <Github className="w-5 h-5" />
-                                </IconButton>
-                            }
-                        />
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                                <li>Designed full-stack architecture with React frontend, .NET Core APIs, and SQL Server backend.</li>
-                                <li>Implemented secure JWT-based authentication with role-based access control.</li>
-                                <li>Built real-time expense insights with interactive charts for financial tracking.</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                        <CardHeader 
-                            title="Chat App"
-                            subheader="React, Firebase"
-                             action={
-                                <IconButton href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
-                                    <Github className="w-5 h-5" />
-                                </IconButton>
-                            }
-                        />
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                                <li>Built a scalable chat application handling 10,000+ concurrent users.</li>
-                                <li>Integrated Firebase Authentication for secure login (99.9% uptime).</li>
-                                <li>Enabled group chats and real-time media sharing to boost engagement.</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                        <CardHeader
-                          title="Web Set Hun (Team)"
-                          subheader="HTML, CSS, JavaScript"
-                          action={
-                            <IconButton href="https://swanirbhar.in/" target="_blank" rel="noopener noreferrer">
-                                <ArrowRight className="w-5 h-5" />
-                            </IconButton>
-                          }
-                        />
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <ul className="list-disc pl-5 space-y-2 text-foreground/90">
-                                <li>Collaborated on redesigning and developing homepage of a social initiative website.</li>
-                                <li>Enhanced UI/UX with responsive design, animations, and dark mode.</li>
-                                <li>Improved performance and engagement via CSS/JavaScript optimizations.</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <Card className="flex flex-col">
+                    <CardHeader>
+                        <div className="flex justify-between items-center">
+                            <div>
+                               <h3 className="text-xl font-bold">Expense Tracker</h3>
+                               <p className="text-sm text-muted-foreground">React, .NET Core, SQL Server, JWT</p>
+                            </div>
+                            <a href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
+                                <Github className="w-5 h-5 hover:text-primary" />
+                            </a>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <ul className="list-disc pl-5 space-y-2 text-foreground/90">
+                            <li>Designed full-stack architecture with React frontend, .NET Core APIs, and SQL Server backend.</li>
+                            <li>Implemented secure JWT-based authentication with role-based access control.</li>
+                            <li>Built real-time expense insights with interactive charts for financial tracking.</li>
+                        </ul>
+                    </CardContent>
+                </Card>
+                 <Card className="flex flex-col">
+                    <CardHeader>
+                        <div className="flex justify-between items-center">
+                            <div>
+                               <h3 className="text-xl font-bold">Chat App</h3>
+                               <p className="text-sm text-muted-foreground">React, Firebase</p>
+                            </div>
+                            <a href="https://github.com/arg-adarsh/Chat-app" target="_blank" rel="noopener noreferrer">
+                                <Github className="w-5 h-5 hover:text-primary" />
+                            </a>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <ul className="list-disc pl-5 space-y-2 text-foreground/90">
+                            <li>Built a scalable chat application handling 10,000+ concurrent users.</li>
+                            <li>Integrated Firebase Authentication for secure login (99.9% uptime).</li>
+                            <li>Enabled group chats and real-time media sharing to boost engagement.</li>
+                        </ul>
+                    </CardContent>
+                </Card>
+                <Card className="flex flex-col">
+                    <CardHeader>
+                        <div className="flex justify-between items-center">
+                            <div>
+                               <h3 className="text-xl font-bold">Web Set Hun (Team)</h3>
+                               <p className="text-sm text-muted-foreground">HTML, CSS, JavaScript</p>
+                            </div>
+                           <a href="https://swanirbhar.in/" target="_blank" rel="noopener noreferrer">
+                                <ArrowRight className="w-5 h-5 hover:text-primary" />
+                            </a>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <ul className="list-disc pl-5 space-y-2 text-foreground/90">
+                            <li>Collaborated on redesigning and developing homepage of a social initiative website.</li>
+                            <li>Enhanced UI/UX with responsive design, animations, and dark mode.</li>
+                            <li>Improved performance and engagement via CSS/JavaScript optimizations.</li>
+                        </ul>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     </section>
 )};
@@ -309,26 +307,34 @@ const ContactSection = () => {
   const ref = useRef<HTMLElement>(null);
   useScrollAnimation(ref);
   return (
-  <section ref={ref} id="contact" className="scroll-animation py-20">
+  <section ref={ref} id="contact" className="scroll-animation py-20 bg-muted/50">
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-center text-4xl font-bold text-primary mb-4">Contact Me</h2>
       <p className="text-center text-muted-foreground mb-8">
         Have a project in mind? I'd love to hear from you.
       </p>
       <Card>
-        <CardContent sx={{ p: 3 }}>
+        <CardContent className="p-6">
           <form className="space-y-4">
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                  <TextField fullWidth label="First Name" variant="outlined" />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                 <TextField fullWidth label="Last Name" variant="outlined" />
-              </Grid>
-            </Grid>
-            <TextField type="email" fullWidth label="Email" variant="outlined" />
-            <TextField fullWidth label="Your message" multiline rows={4} variant="outlined" />
-            <Button type="submit" variant="contained" fullWidth>Send Message</Button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <Label htmlFor="first-name">First Name</Label>
+                    <Input id="first-name" placeholder="John" />
+                </div>
+                <div>
+                    <Label htmlFor="last-name">Last Name</Label>
+                    <Input id="last-name" placeholder="Doe" />
+                </div>
+            </div>
+            <div>
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="john.doe@example.com" />
+            </div>
+            <div>
+                <Label htmlFor="message">Message</Label>
+                <textarea id="message" className="w-full min-h-[100px] bg-background border border-input rounded-md p-2" placeholder="Your message..."></textarea>
+            </div>
+            <Button type="submit" className="w-full">Send Message</Button>
           </form>
         </CardContent>
       </Card>
@@ -362,5 +368,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
