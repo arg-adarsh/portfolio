@@ -1,6 +1,6 @@
 
 'use client';
-import { Code, Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool, Database, GitBranch, Terminal, Wind, Container, Bot } from 'lucide-react';
+import { Code, Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool, Database, GitBranch, Wind, Container, Bot, Briefcase } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,7 @@ const Navbar = () => (
         <span className="font-bold sm:inline-block">Adarsh Raj Gautam</span>
       </a>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
+        <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience">Experience</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact">Contact</a>
         <Button variant="ghost" size="icon" asChild>
@@ -128,15 +129,15 @@ const SkillsSection = () => {
     useScrollAnimation(ref);
 
     const skills = [
-        { name: "C#", icon: <Terminal className="w-5 h-5" /> },
-        { name: ".NET Core", icon: <Code className="w-5 h-5" /> },
-        { name: "React", icon: <Brush className="w-5 h-5" /> },
+        { name: "C#", icon: <Code className="w-5 h-5" /> },
+        { name: ".NET Core", icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.22 14.11L12.79 21.05C12.31 21.45 11.68 21.45 11.2 21.05L2.78 14.11C2.3 13.71 2.3 13.08 2.78 12.68L11.21 5.74C11.69 5.34 12.32 5.34 12.8 5.74L21.22 12.68C21.7 13.08 21.7 13.71 21.22 14.11Z" stroke="currentColor" strokeWidth="1.5" /><path d="M12 2V22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg> },
+        { name: "React", icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="react"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" strokeWidth="1.5" /><ellipse cx="12" cy="12" rx="4" ry="10" stroke="currentColor" strokeWidth="1.5" /><ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(60 12 12)" stroke="currentColor" strokeWidth="1.5" /><ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(120 12 12)" stroke="currentColor" strokeWidth="1.5" /></g></svg> },
         { name: "SQL Server", icon: <Database className="w-5 h-5" /> },
         { name: "Git", icon: <GitBranch className="w-5 h-5" /> },
         { name: "Tailwind CSS", icon: <Wind className="w-5 h-5" /> },
-        { name: "Docker", icon: <Container className="w-5 h-5" /> },
-        { name: "Kubernetes", icon: <Bot className="w-5 h-5" /> },
-        { name: "Jenkins", icon: <Server className="w-5 h-5" /> },
+        { name: "Docker", icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="docker"><path d="M21.9996 11.28C21.9996 9.38 21.3696 7.97 20.2496 7.04C20.0396 6.88 19.6896 6.83 19.3496 6.94C18.0696 6.43 16.6396 6.09 15.1196 6.01C14.9396 5.25 14.6196 4.52 14.1696 3.86C13.6296 3.08 12.8796 2.47 11.9696 2.09C10.5196 1.48 8.8496 1.73 7.6296 2.68C6.9696 3.2 6.5096 3.93 6.2796 4.75C5.5596 4.96 4.9396 5.27 4.3996 5.67C2.9096 6.72 2.4196 8.54 2.8796 10.24C2.9696 10.58 2.8396 10.94 2.5396 11.13C1.0496 12.1 1.0496 14.21 2.5396 15.19C2.8396 15.38 2.9696 15.74 2.8796 16.08C2.3996 17.78 2.8996 19.6 4.3996 20.65C5.8996 21.7 7.9196 21.77 9.5096 20.84C9.7896 20.68 10.1396 20.7 10.4596 20.87C11.5996 21.51 12.9896 21.84 14.4396 21.84C18.6196 21.84 21.9996 18.25 21.9996 14C21.9996 13.04 21.8096 12.12 21.4396 11.28H21.9996Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M6 11H10.36" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M8.18 8.81995H10.36" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M12.54 8.81995H14.72" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M12.54 11H16.9" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M8.18 13.18H10.36" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M12.54 13.18H14.72" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/><path d="M12.54 15.36H14.72" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinejoin="round"/></g></svg> },
+        { name: "Kubernetes", icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="kubernetes"><path d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" stroke="currentColor" strokeWidth="1.5"/><path d="M12 4.22217V19.7777" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M19.7778 12L4.22229 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M17.6567 6.34302L6.34302 17.6567" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M17.6569 17.6567L6.34326 6.34302" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg> },
+        { name: "Jenkins", icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="jenkins"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" strokeWidth="1.5"/><path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="currentColor" strokeWidth="1.5"/><path d="M12 12V18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><path d="M9 18H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><path d="M9 15L15 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></g></svg> },
     ];
     
     return (
@@ -153,6 +154,65 @@ const SkillsSection = () => {
                 </div>
             </div>
         </section>
+    );
+};
+
+const ExperienceSection = () => {
+    const ref = useRef<HTMLElement>(null);
+    useScrollAnimation(ref);
+  
+    const experiences = [
+      {
+        company: "Company Name",
+        role: "Software Engineer",
+        period: "Jan 2022 - Present",
+        description: [
+          "Developed and maintained web applications using C# and .NET Core, resulting in a 20% improvement in performance.",
+          "Collaborated with cross-functional teams to design and implement new features.",
+          "Wrote clean, scalable, and well-documented code.",
+          "Participated in code reviews to maintain high-quality code standards."
+        ]
+      },
+       {
+        company: "Another Company",
+        role: "Junior Software Engineer",
+        period: "Jun 2020 - Dec 2021",
+        description: [
+          "Assisted in the development of a new RESTful API.",
+          "Fixed bugs and improved application performance.",
+          "Gained experience with Agile development methodologies."
+        ]
+      },
+    ];
+  
+    return (
+      <section ref={ref} id="experience" className="scroll-animation py-20 bg-background">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-4xl font-bold text-primary mb-12">Experience</h2>
+          <div className="relative border-l-2 border-primary/20 pl-6 space-y-12">
+             <div className="absolute top-0 left-[-9px] h-4 w-4 rounded-full bg-primary" />
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative">
+                 <div className="absolute -left-[33px] top-1.5 h-4 w-4 rounded-full bg-primary ring-8 ring-background" />
+                <Card className="bg-card">
+                  <CardHeader>
+                    <div className="flex justify-between items-center">
+                        <CardTitle>{exp.role}</CardTitle>
+                        <p className="text-sm text-muted-foreground">{exp.period}</p>
+                    </div>
+                    <CardDescription>{exp.company}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="list-disc pl-5 space-y-2 text-foreground/90">
+                      {exp.description.map((item, i) => <li key={i}>{item}</li>)}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     );
 };
 
@@ -264,6 +324,7 @@ export default function Home() {
         <HeroSection />
         <WhatIDoSection />
         <SkillsSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ContactSection />
       </main>
@@ -271,3 +332,4 @@ export default function Home() {
     </div>
   );
 }
+
