@@ -5,16 +5,12 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
-import { HeroSectionSkeleton } from '@/components/skeletons/HeroSectionSkeleton';
+import { HeroSection } from '@/components/sections/HeroSection';
 import { WhatIDoSectionSkeleton } from '@/components/skeletons/WhatIDoSectionSkeleton';
 import { SkillsSectionSkeleton } from '@/components/skeletons/SkillsSectionSkeleton';
 import { ExperienceSectionSkeleton } from '@/components/skeletons/ExperienceSectionSkeleton';
 import { ProjectsSectionSkeleton } from '@/components/skeletons/ProjectsSectionSkeleton';
 import { ContactSectionSkeleton } from '@/components/skeletons/ContactSectionSkeleton';
-
-const HeroSection = dynamic(() =>
-  import('@/components/sections/HeroSection').then((mod) => mod.HeroSection)
-);
 
 const WhatIDoSection = dynamic(() =>
   import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection)
@@ -37,9 +33,7 @@ export default function Home() {
     <div className="bg-background text-foreground font-sans">
       <Navbar />
       <main className="relative overflow-x-hidden no-scrollbar">
-        <Suspense fallback={<HeroSectionSkeleton />}>
-          <HeroSection />
-        </Suspense>
+        <HeroSection />
         <Suspense fallback={<WhatIDoSectionSkeleton />}>
           <WhatIDoSection />
         </Suspense>

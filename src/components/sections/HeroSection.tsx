@@ -1,9 +1,7 @@
 
 'use client';
-import { useRef } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const HeroSection = () => {
     return (
