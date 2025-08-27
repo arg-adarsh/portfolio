@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 // IMPORTANT: Replace "your-repo-name" with the name of your GitHub repository.
-const repoName = '/your-repo-name';
+const repoName = '/portfolio';
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 
