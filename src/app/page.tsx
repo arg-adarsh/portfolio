@@ -1,42 +1,71 @@
 
-
 'use client';
-import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool, Menu, X } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins, FaDatabase } from 'react-icons/fa';
 import { SiDotnet, SiTailwindcss, SiKubernetes, SiJavascript } from 'react-icons/si';
 
 
-const Navbar = () => (
-  <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-      <a href="/" className="mr-6 flex items-center space-x-2">
-        <span className="font-bold sm:inline-block">Adarsh Raj Gautam</span>
-      </a>
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
-        <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience">Experience</a>
-        <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
-        <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact">Contact</a>
-        <Button variant="outline" size="icon" asChild>
-            <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-4 w-4" />
-            </a>
-        </Button>
-         <Button variant="outline" size="icon" asChild>
-            <a href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-4 w-4" />
-            </a>
-        </Button>
-      </nav>
-    </div>
-  </header>
-);
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    return (
+      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+          <a href="/" className="mr-6 flex items-center space-x-2">
+            <span className="font-bold sm:inline-block">Adarsh Raj Gautam</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
+            <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience">Experience</a>
+            <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
+            <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact">Contact</a>
+            <Button variant="outline" size="icon" asChild>
+                <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <Github className="h-4 w-4" />
+                </a>
+            </Button>
+             <Button variant="outline" size="icon" asChild>
+                <a href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <Linkedin className="h-4 w-4" />
+                </a>
+            </Button>
+          </nav>
+          <div className="md:hidden">
+            <Button variant="outline" size="icon" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </Button>
+          </div>
+        </div>
+        {isOpen && (
+            <div className="md:hidden absolute top-14 left-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
+                <nav className="container flex flex-col items-center gap-4 py-4 text-sm">
+                    <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience" onClick={() => setIsOpen(false)}>Experience</a>
+                    <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
+                    <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+                    <div className="flex gap-4 mt-2">
+                        <Button variant="outline" size="icon" asChild>
+                            <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <Github className="h-4 w-4" />
+                            </a>
+                        </Button>
+                         <Button variant="outline" size="icon" asChild>
+                            <a href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <Linkedin className="h-4 w-4" />
+                            </a>
+                        </Button>
+                    </div>
+                </nav>
+            </div>
+        )}
+      </header>
+    );
+};
 
 const HeroSection = () => {
     const ref = useRef<HTMLElement>(null);
@@ -44,7 +73,7 @@ const HeroSection = () => {
     return (
     <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
       <div className="text-center lg:text-start space-y-6">
-        <main className="text-5xl md:text-6xl font-bold">
+        <main className="text-4xl md:text-6xl font-bold">
           <h1 className="inline">
             <span className="inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text">
               Hello, I'm
@@ -65,13 +94,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="z-10">
+      <div className="z-10 order-first lg:order-last">
          <Image 
-            src="https://picsum.photos/600/600"
+            src="https://picsum.photos/400/400"
             alt="Adarsh Raj Gautam"
-            width={600}
-            height={600}
-            className="rounded-lg shadow-2xl"
+            width={400}
+            height={400}
+            className="rounded-lg shadow-2xl w-full max-w-[400px]"
             data-ai-hint="professional portrait"
           />
       </div>
@@ -85,7 +114,7 @@ const WhatIDoSection = () => {
   return (
   <section ref={ref} id="what-i-do" className="scroll-animation py-20 bg-muted/50">
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 className="text-center text-4xl font-bold text-primary mb-12">What I Do</h2>
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">What I Do</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card className="text-center p-6">
             <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
@@ -139,9 +168,9 @@ const SkillsSection = () => {
       { name: "Java", icon: <FaJava size={40} /> },
       { name: "Javascript", icon: <SiJavascript size={40} /> },
       { name: "C#", icon: (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="40" height="40">
-            <path fill="currentColor" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/>
-            <path fill="currentColor" d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="40" height="40" fill="currentColor">
+            <path d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/>
+            <path d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"/>
             <path fill="#fff" d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8l-.9 4.3z"/>
           </svg>
         ) 
@@ -159,7 +188,7 @@ const SkillsSection = () => {
     return (
         <section ref={ref} id="skills" className="scroll-animation py-20">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h2 className="text-center text-4xl font-bold text-primary mb-12">Skills</h2>
+                <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">Skills</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
                     {skills.map(skill => (
                          <div key={skill.name} className="flex flex-col items-center justify-center gap-4 p-4 bg-card rounded-lg shadow-lg transform transition-transform hover:scale-110">
@@ -206,7 +235,7 @@ const ExperienceSection = () => {
     return (
       <section ref={ref} id="experience" className="scroll-animation py-20 bg-muted/50">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-4xl font-bold text-primary mb-12">Experience</h2>
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">Experience</h2>
           <div className="relative border-l-2 border-primary/20 pl-6 space-y-12">
              <div className="absolute top-0 left-[-9px] h-4 w-4 rounded-full bg-primary" />
             {experiences.map((exp, index) => (
@@ -214,8 +243,8 @@ const ExperienceSection = () => {
                  <div className="absolute -left-[33px] top-1.5 h-4 w-4 rounded-full bg-primary ring-8 ring-background" />
                 <Card>
                   <CardHeader>
-                     <div className="flex justify-between items-start">
-                        <div>
+                     <div className="flex flex-col sm:flex-row justify-between items-start">
+                        <div className="mb-2 sm:mb-0">
                             <h3 className="text-xl font-bold">{exp.role}</h3>
                             <p className="text-muted-foreground">{exp.company}</p>
                         </div>
@@ -244,7 +273,7 @@ const ProjectsSection = () => {
   return (
     <section ref={ref} id="projects" className="scroll-animation py-20">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-4xl font-bold text-primary mb-12">Projects</h2>
+            <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card className="flex flex-col">
                     <CardHeader>
@@ -317,7 +346,7 @@ const ContactSection = () => {
   return (
   <section ref={ref} id="contact" className="scroll-animation py-20 bg-muted/50">
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 className="text-center text-4xl font-bold text-primary mb-4">Contact Me</h2>
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-4">Contact Me</h2>
       <p className="text-center text-muted-foreground mb-8">
         Have a project in mind? I'd love to hear from you.
       </p>
@@ -376,3 +405,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
