@@ -16,7 +16,8 @@ const WhatIDoSection = dynamic(() =>
   import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection)
 );
 const SkillsSection = dynamic(() =>
-  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection)
+  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection),
+  { ssr: false } 
 );
 const ExperienceSection = dynamic(() =>
   import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection)
