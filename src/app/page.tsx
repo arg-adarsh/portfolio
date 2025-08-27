@@ -94,6 +94,9 @@ const HeroSection = () => {
 
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <Button className="w-full md:w-1/3" asChild><a href="#contact">Contact Me</a></Button>
+          <Button variant="outline" className="w-full md:w-1/3" asChild>
+              <a href="/Adarsh_Raj_Gautam_Resume.pdf" download>Download CV</a>
+          </Button>
         </div>
       </div>
 
