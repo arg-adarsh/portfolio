@@ -13,29 +13,23 @@ import { ProjectsSectionSkeleton } from '@/components/skeletons/ProjectsSectionS
 import { ContactSectionSkeleton } from '@/components/skeletons/ContactSectionSkeleton';
 
 const HeroSection = dynamic(() =>
-  import('@/components/sections/HeroSection').then((mod) => mod.HeroSection),
-  { ssr: false }
+  import('@/components/sections/HeroSection').then((mod) => mod.HeroSection)
 );
 
 const WhatIDoSection = dynamic(() =>
-  import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection),
-  { ssr: false }
+  import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection)
 );
 const SkillsSection = dynamic(() =>
-  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection),
-  { ssr: false }
+  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection)
 );
 const ExperienceSection = dynamic(() =>
-  import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection),
-  { ssr: false }
+  import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection)
 );
 const ProjectsSection = dynamic(() =>
-  import('@/components/sections/ProjectsSection').then((mod) => mod.ProjectsSection),
-  { ssr: false }
+  import('@/components/sections/ProjectsSection').then((mod) => mod.ProjectsSection)
 );
 const ContactSection = dynamic(() =>
-  import('@/components/sections/ContactSection').then((mod) => mod.ContactSection),
-  { ssr: false }
+  import('@/components/sections/ContactSection').then((mod) => mod.ContactSection)
 );
 
 export default function Home() {
