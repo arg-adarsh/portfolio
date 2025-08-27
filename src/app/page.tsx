@@ -12,35 +12,29 @@ import { ExperienceSectionSkeleton } from '@/components/skeletons/ExperienceSect
 import { ProjectsSectionSkeleton } from '@/components/skeletons/ProjectsSectionSkeleton';
 import { ContactSectionSkeleton } from '@/components/skeletons/ContactSectionSkeleton';
 
-const fakeDelay = (promise: Promise<any>, delay: number) => {
-    return new Promise(resolve => {
-        setTimeout(resolve, delay);
-    }).then(() => promise);
-}
-
 const HeroSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/HeroSection').then((mod) => mod.HeroSection), 2000),
+  import('@/components/sections/HeroSection').then((mod) => mod.HeroSection),
   { ssr: false }
 );
 
 const WhatIDoSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection), 2000),
+  import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection),
   { ssr: false }
 );
 const SkillsSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection), 2000),
+  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection),
   { ssr: false }
 );
 const ExperienceSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection), 2000),
+  import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection),
   { ssr: false }
 );
 const ProjectsSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/ProjectsSection').then((mod) => mod.ProjectsSection), 2000),
+  import('@/components/sections/ProjectsSection').then((mod) => mod.ProjectsSection),
   { ssr: false }
 );
 const ContactSection = dynamic(() =>
-  fakeDelay(import('@/components/sections/ContactSection').then((mod) => mod.ContactSection), 2000),
+  import('@/components/sections/ContactSection').then((mod) => mod.ContactSection),
   { ssr: false }
 );
 
