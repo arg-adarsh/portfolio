@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Poppins as FontSans } from "next/font/google"
-import { cn } from "@/lib/utils"
  
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,10 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}>
+      <body className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}>
         {children}
       </body>
     </html>
