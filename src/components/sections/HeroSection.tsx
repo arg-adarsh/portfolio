@@ -9,7 +9,7 @@ export const HeroSection = () => {
     const ref = useRef<HTMLElement>(null);
     useScrollAnimation(ref);
     return (
-    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center gap-10 py-10 md:py-20 min-h-[calc(100vh-3.5rem)]">
+    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center gap-10 py-20 md:py-32">
       <div className="text-center lg:text-start space-y-6">
         <main className="text-4xl md:text-6xl font-bold">
           <h1 className="inline">
