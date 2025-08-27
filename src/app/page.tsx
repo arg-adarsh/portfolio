@@ -1,13 +1,13 @@
 
 'use client';
 import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardMedia, Typography, Box, Grid, TextField } from '@mui/material';
+import { Card, CardContent, CardHeader, Typography, Box, Grid, TextField } from '@mui/material';
 import { Button, IconButton } from '@mui/material';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useRef } from 'react';
-import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins } from 'react-icons/fa';
-import { SiDotnet, SiMicrosoftsqlserver, SiTailwindcss, SiKubernetes, SiCsharp, SiJavascript } from 'react-icons/si';
+import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins, FaDatabase } from 'react-icons/fa';
+import { SiDotnet, SiTailwindcss, SiKubernetes, SiFsharp, SiJavascript } from 'react-icons/si';
 
 
 const Navbar = () => (
@@ -143,10 +143,10 @@ const SkillsSection = () => {
     const skills = [
       { name: "Java", icon: <FaJava size={40} /> },
       { name: "Javascript", icon: <SiJavascript size={40} /> },
-      { name: "C#", icon: <SiCsharp size={40} /> },
+      { name: "C#", icon: <SiFsharp size={40} /> },
       { name: ".NET", icon: <SiDotnet size={40} /> },
       { name: "React", icon: <FaReact size={40} /> },
-      { name: "SQL Server", icon: <SiMicrosoftsqlserver size={40} /> },
+      { name: "SQL Server", icon: <FaDatabase size={40} /> },
       { name: "Git", icon: <FaGitAlt size={40} /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss size={40} /> },
       { name: "Docker", icon: <FaDocker size={40} /> },
@@ -363,3 +363,4 @@ export default function Home() {
   );
 }
 
+    
