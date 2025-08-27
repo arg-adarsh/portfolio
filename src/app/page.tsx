@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground font-sans">
       <Navbar />
-      <main className="relative overflow-x-hidden">
+      <main className="relative overflow-x-hidden no-scrollbar">
         <HeroSection />
         <WhatIDoSection />
         <SkillsSection />

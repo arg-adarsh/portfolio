@@ -55,10 +55,18 @@ body {
 }
 
 @layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
   .scroll-animation {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out, background-color 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
   .scroll-animation.is-visible {
     opacity: 1;

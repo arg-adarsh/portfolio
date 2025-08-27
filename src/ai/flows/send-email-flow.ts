@@ -17,7 +17,8 @@ const SendEmailInputSchema = z.object({
   subject: z.string().describe('The subject of the message.'),
   message: z.string().describe('The content of the message.'),
 });
-type SendEmailInput = z.infer<typeof SendEmailInputSchema>;
+
+export type SendEmailInput = z.infer<typeof SendEmailInputSchema>;
 
 const SendEmailOutputSchema = z.object({
   success: z.boolean(),
