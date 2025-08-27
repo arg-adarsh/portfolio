@@ -8,6 +8,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
+import { Resend } from 'resend';
 
 const SendEmailInputSchema = z.object({
   fullName: z.string().describe('The full name of the person sending the message.'),
@@ -36,35 +37,27 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: SendEmailOutputSchema,
   },
   async (input) => {
-    console.log('Received contact form submission:', input);
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // TODO: Implement actual email sending logic here.
-    // This could involve using a third-party service like SendGrid, Mailgun, or Nodemailer.
-    // For now, we'll just simulate a successful email send.
-    
-    // Example (conceptual):
-    // const emailProvider = new EmailProvider(process.env.EMAIL_API_KEY);
-    // await emailProvider.send({
-    //   to: 'your-email@example.com', // Replace with your actual email
-    //   from: input.email,
-    //   subject: `New message from ${input.fullName}: ${input.subject}`,
-    //   body: `
-    //     Name: ${input.fullName}
-    //     Company: ${input.company || 'N/A'}
-    //     Email: ${input.email}
-    //
-    //     Message:
-    //     ${input.message}
-    //   `,
-    // });
-    
-    // Simulate a delay to make it feel more real
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    return {
-      success: true,
-    };
+    try {
+      await resend.emails.send({
+        from: 'onboarding@resend.dev', // This must be a verified domain in Resend, 'onboarding@resend.dev' is for testing.
+        to: 'arg.adarsh@gmail.com',
+        subject: `New message from ${input.fullName}: ${input.subject}`,
+        html: `
+          <p><strong>Name:</strong> ${input.fullName}</p>
+          <p><strong>Company:</strong> ${input.company || 'N/A'}</p>
+          <p><strong>Email:</strong> ${input.email}</p>
+          <hr />
+          <p><strong>Message:</strong></p>
+          <p>${input.message}</p>
+        `,
+      });
+
+      return { success: true };
+    } catch (error) {
+      console.error('Error sending email with Resend:', error);
+      return { success: false };
+    }
   }
 );
-
-    
