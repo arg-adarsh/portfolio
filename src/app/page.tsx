@@ -3,12 +3,15 @@
 import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/componentsui/button';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useRef } from 'react';
+import { FaJava, FaReact, FaGitAlt, FaDocker, FaJenkins } from 'react-icons/fa';
+import { SiDotnet, SiMicrosoftsqlserver, SiTailwindcss, SiKubernetes, SiCsharp, SiJavascript } from 'react-icons/si';
+
 
 const Navbar = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -129,17 +132,17 @@ const SkillsSection = () => {
     useScrollAnimation(ref);
 
     const skills = [
-      { name: "C#", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14.22 8.33c-.34-.64-1.06-1.04-1.85-1.04h-1.34c-1.31 0-2.37 1-2.37 2.22v4.94c0 1.22 1.06 2.22 2.37 2.22h1.34c.79 0 1.51-.4 1.85-1.04l.1-.21c.23-.49.35-1.04.35-1.61v-2.88c0-.57-.12-1.12-.35-1.61l-.1-.21M13.2 15c-.14.28-.48.55-1.17.55h-1.34c-.65 0-1.18-.47-1.18-1.04v-4.94c0-.57.53-1.04 1.18-1.04h1.34c.69 0 1.03.27 1.17.55l.1.21c.14.3.23.64.23.99v2.88c0 .35-.09.69-.23.99l-.1.21m-9.53-8.81h-2.2v20.96h2.2zM2.49 5.34h2.2V2.12h-2.2z"/></svg> },
-      { name: ".NET", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m8 10.5c0 .83-.67 1.5-1.5 1.5h-2.5v2h-2v-2H12v2h-2v-2H8.5c-.83 0-1.5-.67-1.5-1.5v-1c0-.83.67-1.5 1.5-1.5H10v-2h2v2h1.5v-2h2v2h1.5c.83 0 1.5.67 1.5 1.5z"/></svg> },
-      { name: "React", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.07a9.92 9.92 0 0 1 8.79 5.21a.5.5 0 0 1-.44.72H18a.5.5 0 0 1-.49-.36a8 8 0 0 0-15 0a.5.5 0 0 1-.49.36h-2.3a.5.5 0 0 1-.44-.72A9.92 9.92 0 0 1 12 4.07m0-2.07a12 12 0 0 0-11.18 7.21a2.5 2.5 0 0 0 2.22 3.59H5.5a2.5 2.5 0 0 0 2.45-1.84a6 6 0 0 1 8.1 0A2.5 2.5 0 0 0 18.5 13h2.44a2.5 2.5 0 0 0 2.22-3.59A12 12 0 0 0 12 2m8.79 9.72a.5.5 0 0 1 .44.72A9.92 9.92 0 0 1 12 19.93a9.92 9.92 0 0 1-8.79-5.21a.5.5 0 0 1 .44-.72H6a.5.5 0 0 1 .49.36a8 8 0 0 0 15 0a.5.5 0 0 1 .49-.36h2.3m-1.15 2.87a2.5 2.5 0 0 0-2.22-3.59H18.5a2.5 2.5 0 0 0-2.45 1.84a6 6 0 0 1-8.1 0A2.5 2.5 0 0 0 5.5 11H3.06a2.5 2.5 0 0 0-2.22 3.59A12 12 0 0 0 12 22a12 12 0 0 0 11.18-7.21M12 8a4 4 0 1 0 4 4a4 4 0 0 0-4-4"/></svg> },
-      { name: "SQL Server", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2M9 18H7v-6h2zm4 0h-2v-6h2zm4 0h-2v-6h2zM12 4c1.93 0 3.5 1.57 3.5 3.5S13.93 11 12 11s-3.5-1.57-3.5-3.5S10.07 4 12 4"/></svg> },
-      { name: "Git", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22.78 12.02c-.81-.22-1.33.2-1.33.2s-1.42-2.9-1.57-3.32c-.16-.42-.14-.61.31-1.05s.98-.69.98-.69s-2.45-1.1-4.83-1.38c-.3-.04-.52.28-.52.28s-1.86.3-3.79.3c-1.93 0-3.79-.3-3.79-.3s-.22-.32-.52-.28C5.02 6.37 2.57 7.47 2.57 7.47s.53.25.98.69c.45.44.47.63.31 1.05c-.15.42-1.57 3.32-1.57 3.32s-.52-.42-1.33-.2C.15 12.24 0 12.83 0 13.59c0 2.37 2.26 2.86 2.26 2.86s.78.36.98.8c.2.44.11.96-.28 1.45c-.39.5-.78.78-.78.78s.73 3.37 1.25 4.35c.52.98 1.28 1.17 1.28 1.17s2.72.93 6.29.93c3.57 0 6.29-.93 6.29-.93s.76-.19 1.28-1.17c.52-.98 1.25-4.35 1.25-4.35s-.39-.28-.78-.78c-.39-.49-.48-1.01-.28-1.45c.2-.44.98-.8.98-.8s2.26-.49 2.26-2.86c0-.76-.15-1.35-.92-1.57m-10.45 5.56c-.68 0-1.23-.55-1.23-1.23s.55-1.23 1.23-1.23s1.23.55 1.23 1.23s-.55 1.23-1.23 1.23m0-10.45c-.68 0-1.23-.55-1.23-1.23s.55-1.23 1.23-1.23s1.23.55 1.23 1.23s-.55 1.23-1.23 1.23m6.16 5.22c-.68 0-1.23-.55-1.23-1.23s.55-1.23 1.23-1.23s1.23.55 1.23 1.23s-.55 1.23-1.23 1.23"/></svg> },
-      { name: "Tailwind CSS", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.029 12 18.001 12c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.334 6.182 14.971 4.8 12.001 4.8m-6 7.2c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624c1.177 1.194 2.539 2.576 5.512 2.576c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.334 13.382 8.971 12 6.001 12"/></svg> },
-      { name: "Docker", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 8.95c-.34-3.54-2.2-6.53-4.82-8.31a.5.5 0 0 0-.58.07L8.9 6.85c-.07.06-.1.14-.1.23V8c0 .28.22.5.5.5h1.2v-.95l6.5-4.55c1.47 1.1 2.53 2.76 2.88 4.7l-7.08 4.9V7.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v2.96L2.9 6.85a.5.5 0 0 0-.57-.07c-2.63 1.78-4.48 4.77-4.82 8.32L10 22.8V22c0-1.04.86-1.9 1.9-1.9c1.04 0 1.9.86 1.9 1.9v.8l10.5-12.75l-2.4-1.2zM8.5 2h-1v2h1zm-2 0h-1v2h1zm-2 0h-1v2h1zm-2 0H1.45L1.5 2h1zM6.5 5h-1v2h1zm-2 0h-1v2h1zm2-3h-1v2h1z"/></svg> },
-      { name: "Kubernetes", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m5.79 14.54l-3.46-1.59l-3.46 1.59l-.8-4.22l-2.1-1.39l2.84-2.84l1.39-2.1l4.22.8l1.59-3.46l1.59 3.46l4.22-.8l1.39 2.1l2.84 2.84l-2.1 1.39zM12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8"/></svg> },
-      { name: "Jenkins", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-1-12h2v8h-2zm0 10h2v2h-2z"/></svg> },
-      { name: "Java", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h16v2h-2v10h-2V4h-2v12h-2V4h-2v12h-2V4H6v10H4zm14 18v-6h-6v6zm-2-2h-2v-2h2z"/></svg> },
-      { name: "Javascript", icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14.5 13.5h-5v-1h5m0 3h-5v-1h5m-5-5v-1h5v1zm10-7H4.5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h15a2 2 0 0 0 2-2V6.5a2 2 0 0 0-2-2"/></svg> },
+      { name: "C#", icon: <SiCsharp size={40} /> },
+      { name: ".NET", icon: <SiDotnet size={40} /> },
+      { name: "React", icon: <FaReact size={40} /> },
+      { name: "SQL Server", icon: <SiMicrosoftsqlserver size={40} /> },
+      { name: "Git", icon: <FaGitAlt size={40} /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss size={40} /> },
+      { name: "Docker", icon: <FaDocker size={40} /> },
+      { name: "Kubernetes", icon: <SiKubernetes size={40} /> },
+      { name: "Jenkins", icon: <FaJenkins size={40} /> },
+      { name: "Java", icon: <FaJava size={40} /> },
+      { name: "Javascript", icon: <SiJavascript size={40} /> },
     ];
     
     return (
