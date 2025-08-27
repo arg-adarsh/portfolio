@@ -3,7 +3,7 @@
 import { Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/componentsui/button';
+import { Button, IconButton } from '@mui/material';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,16 +23,12 @@ const Navbar = () => (
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#experience">Experience</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
         <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#contact">Contact</a>
-        <Button variant="ghost" size="icon" asChild>
-          <a href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <IconButton href="https://github.com/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" color="primary">
             <Github className="h-4 w-4" />
-          </a>
-        </Button>
-        <Button variant="ghost" size="icon" asChild>
-          <a href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        </IconButton>
+        <IconButton href="https://linkedin.com/in/arg-adarsh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" color="primary">
             <Linkedin className="h-4 w-4" />
-          </a>
-        </Button>
+        </IconButton>
       </nav>
     </div>
   </header>
@@ -61,9 +57,7 @@ const HeroSection = () => {
         </p>
 
         <div className="space-y-4 md:space-y-0 md:space-x-4">
-          <Button className="w-full md:w-1/3" asChild>
-            <a href="#contact">Contact Me</a>
-          </Button>
+          <Button variant="contained" href="#contact" sx={{ width: { xs: '100%', md: '33%' } }}>Contact Me</Button>
         </div>
       </div>
 
@@ -305,7 +299,7 @@ const ContactSection = () => {
             </div>
             <Input type="email" placeholder="Email" />
             <Textarea placeholder="Your message" />
-            <Button type="submit" className="w-full">Send Message</Button>
+            <Button type="submit" variant="contained" fullWidth>Send Message</Button>
           </form>
         </CardContent>
       </Card>
