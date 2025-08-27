@@ -30,3 +30,5 @@ export const useScrollAnimation = (ref: RefObject<HTMLElement>) => {
     };
   }, [ref]);
 };
+
+    
