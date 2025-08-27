@@ -12,7 +12,8 @@ export const useScrollAnimation = (ref: RefObject<HTMLElement>) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             element.classList.add('is-visible');
-            observer.unobserve(element);
+          } else {
+            element.classList.remove('is-visible');
           }
         });
       },
