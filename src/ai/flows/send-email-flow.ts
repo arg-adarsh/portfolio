@@ -38,22 +38,24 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: SendEmailOutputSchema,
   },
   async (input) => {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // const resend = new Resend(process.env.RESEND_API_KEY);
 
     try {
-      await resend.emails.send({
-        from: 'onboarding@resend.dev', // This must be a verified domain in Resend, 'onboarding@resend.dev' is for testing.
-        to: 'arg.adarsh@gmail.com',
-        subject: `New message from ${input.fullName}: ${input.subject}`,
-        html: `
-          <p><strong>Name:</strong> ${input.fullName}</p>
-          <p><strong>Company:</strong> ${input.company || 'N/A'}</p>
-          <p><strong>Email:</strong> ${input.email}</p>
-          <hr />
-          <p><strong>Message:</strong></p>
-          <p>${input.message}</p>
-        `,
-      });
+      // await resend.emails.send({
+      //   from: 'onboarding@resend.dev', // This must be a verified domain in Resend, 'onboarding@resend.dev' is for testing.
+      //   to: 'arg.adarsh@gmail.com',
+      //   subject: `New message from ${input.fullName}: ${input.subject}`,
+      //   html: `
+      //     <p><strong>Name:</strong> ${input.fullName}</p>
+      //     <p><strong>Company:</strong> ${input.company || 'N/A'}</p>
+      //     <p><strong>Email:</strong> ${input.email}</p>
+      //     <hr />
+      //     <p><strong>Message:</strong></p>
+      //     <p>${input.message}</p>
+      //   `,
+      // });
+
+      console.log('Email sending is disabled. Form data:', input);
 
       return { success: true };
     } catch (error) {
