@@ -1,15 +1,26 @@
 
 'use client';
 
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/sections/Navbar';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { WhatIDoSection } from '@/components/sections/WhatIDoSection';
-import { SkillsSection } from '@/components/sections/SkillsSection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import { ProjectsSection } from '@/components/sections/ProjectsSection';
-import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/sections/Footer';
+import { HeroSection } from '@/components/sections/HeroSection';
 
+const WhatIDoSection = dynamic(() =>
+  import('@/components/sections/WhatIDoSection').then((mod) => mod.WhatIDoSection)
+);
+const SkillsSection = dynamic(() =>
+  import('@/components/sections/SkillsSection').then((mod) => mod.SkillsSection)
+);
+const ExperienceSection = dynamic(() =>
+  import('@/components/sections/ExperienceSection').then((mod) => mod.ExperienceSection)
+);
+const ProjectsSection = dynamic(() =>
+  import('@/components/sections/ProjectsSection').then((mod) => mod.ProjectsSection)
+);
+const ContactSection = dynamic(() =>
+  import('@/components/sections/ContactSection').then((mod) => mod.ContactSection)
+);
 
 export default function Home() {
   return (
