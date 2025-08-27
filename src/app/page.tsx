@@ -1,11 +1,14 @@
 
-import { Code, Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool } from 'lucide-react';
+'use client';
+import { Code, Github, Linkedin, Mail, ArrowRight, Server, Brush, PenTool, Database, GitBranch, Terminal, Wind, Container, Bot } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useRef } from 'react';
 
 const Navbar = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -31,8 +34,11 @@ const Navbar = () => (
   </header>
 );
 
-const HeroSection = () => (
-    <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
+const HeroSection = () => {
+    const ref = useRef<HTMLElement>(null);
+    useScrollAnimation(ref);
+    return (
+    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
       <div className="text-center lg:text-start space-y-6">
         <main className="text-5xl md:text-6xl font-bold">
           <h1 className="inline">
@@ -69,10 +75,13 @@ const HeroSection = () => (
       </div>
       <div className="absolute h-full max-h-[500px] w-full max-w-[500px] bg-purple-700/50 rounded-full -z-10 blur-3xl" />
     </section>
-);
+)};
 
-const WhatIDoSection = () => (
-  <section id="what-i-do" className="py-20 bg-background">
+const WhatIDoSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  useScrollAnimation(ref);
+  return (
+  <section ref={ref} id="what-i-do" className="scroll-animation py-20 bg-background">
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-center text-4xl font-bold text-primary mb-12">What I Do</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -112,11 +121,48 @@ const WhatIDoSection = () => (
       </div>
     </div>
   </section>
-);
+)};
+
+const SkillsSection = () => {
+    const ref = useRef<HTMLElement>(null);
+    useScrollAnimation(ref);
+
+    const skills = [
+        { name: "C#", icon: <Terminal className="w-5 h-5" /> },
+        { name: ".NET Core", icon: <Code className="w-5 h-5" /> },
+        { name: "React", icon: <Brush className="w-5 h-5" /> },
+        { name: "SQL Server", icon: <Database className="w-5 h-5" /> },
+        { name: "Git", icon: <GitBranch className="w-5 h-5" /> },
+        { name: "Tailwind CSS", icon: <Wind className="w-5 h-5" /> },
+        { name: "Docker", icon: <Container className="w-5 h-5" /> },
+        { name: "Kubernetes", icon: <Bot className="w-5 h-5" /> },
+        { name: "Jenkins", icon: <Server className="w-5 h-5" /> },
+    ];
+    
+    return (
+        <section ref={ref} id="skills" className="scroll-animation py-20 bg-background">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h2 className="text-center text-4xl font-bold text-primary mb-12">Skills</h2>
+                <div className="flex flex-wrap justify-center gap-4">
+                    {skills.map(skill => (
+                        <Badge key={skill.name} variant="secondary" className="text-lg py-2 px-4 rounded-full flex items-center gap-2">
+                           {skill.icon}
+                           {skill.name}
+                        </Badge>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 
-const ProjectsSection = () => (
-    <section id="projects" className="py-20 bg-background">
+const ProjectsSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  useScrollAnimation(ref);
+
+  return (
+    <section ref={ref} id="projects" className="scroll-animation py-20 bg-background">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center text-4xl font-bold text-primary mb-12">Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -171,10 +217,13 @@ const ProjectsSection = () => (
             </div>
         </div>
     </section>
-);
+)};
 
-const ContactSection = () => (
-  <section id="contact" className="py-20">
+const ContactSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  useScrollAnimation(ref);
+  return (
+  <section ref={ref} id="contact" className="scroll-animation py-20">
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-center text-4xl font-bold text-primary mb-4">Contact Me</h2>
       <p className="text-center text-muted-foreground mb-8">
@@ -195,7 +244,7 @@ const ContactSection = () => (
       </Card>
     </div>
   </section>
-);
+)};
 
 
 const Footer = () => (
@@ -211,9 +260,10 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground font-sans">
       <Navbar />
-      <main className="relative">
+      <main className="relative overflow-x-hidden">
         <HeroSection />
         <WhatIDoSection />
+        <SkillsSection />
         <ProjectsSection />
         <ContactSection />
       </main>
