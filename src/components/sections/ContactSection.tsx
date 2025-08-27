@@ -50,7 +50,7 @@ export const ContactSection = () => {
 
 
   return (
-  <section ref={ref} id="contact" className="scroll-animation py-20 bg-muted/50 min-h-screen flex items-center">
+  <section ref={ref} id="contact" className="scroll-animation py-20 bg-muted/50">
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-4">Contact Me</h2>
       <p className="text-center text-muted-foreground mb-8">
