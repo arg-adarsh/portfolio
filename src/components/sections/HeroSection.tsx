@@ -6,10 +6,8 @@ import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const HeroSection = () => {
-    const ref = useRef<HTMLElement>(null);
-    useScrollAnimation(ref);
     return (
-    <section ref={ref} className="scroll-animation container grid lg:grid-cols-2 place-items-center gap-10 py-20 md:py-32">
+    <section className="container grid lg:grid-cols-2 place-items-center gap-10 py-20 md:py-32">
       <div className="text-center lg:text-start space-y-6">
         <main className="text-4xl md:text-6xl font-bold">
           <h1 className="inline">
@@ -37,7 +35,7 @@ export const HeroSection = () => {
 
       <div className="z-10 order-first lg:order-last">
          <Image 
-            src="https://drive.google.com/file/d/11l0M0LQJuPPtap9z2ysXy9M2uRqCkJY9/view"
+            src="https://picsum.photos/800/800"
             alt="Adarsh Raj Gautam"
             width={800}
             height={800}
