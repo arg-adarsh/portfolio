@@ -30,14 +30,14 @@ export const HeroSection = () => {
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <Button className="w-full md:w-1/3" asChild><a href="#contact">Contact Me</a></Button>
           <Button variant="outline" className="w-full md:w-1/3" asChild>
-              <a href="/Adarsh_Raj_Gautam_Resume.pdf" download>Download CV</a>
+              <a href="https://drive.google.com/file/d/11l0M0LQJuPPtap9z2ysXy9M2uRqCkJY9/view" target="_blank" rel="noopener noreferrer">Download CV</a>
           </Button>
         </div>
       </div>
 
       <div className="z-10 order-first lg:order-last">
          <Image 
-            src="https://picsum.photos/800/800"
+            src="https://drive.google.com/file/d/11l0M0LQJuPPtap9z2ysXy9M2uRqCkJY9/view"
             alt="Adarsh Raj Gautam"
             width={800}
             height={800}
