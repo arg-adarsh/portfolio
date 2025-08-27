@@ -1,7 +1,23 @@
 /** @type {import('next').NextConfig} */
+
+// IMPORTANT: Replace "your-repo-name" with the name of your GitHub repository.
+const repoName = '/your-repo-name';
+
+const isGithubActions = process.env.GITHUB_ACTIONS || false
+
+let assetPrefix = ''
+let basePath = ''
+
+if (isGithubActions) {
+  assetPrefix = repoName
+  basePath = repoName
+}
+
 const nextConfig = {
   /* config options here */
   output: 'export',
+  assetPrefix: assetPrefix,
+  basePath: basePath,
   trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,
