@@ -11,16 +11,15 @@ export const ExperienceSection = () => {
     const experiences = [
       {
         company: "Medi Assist Healthcare",
-        role: "Software Engineer L1",
+        role: "Software Engineer",
         period: "Jul 2024 - Present",
         location: "Bangalore, India",
         description: [
-          "Developed a distributed batch processing system to process Excel data, reducing manual input by 95% and improving onboarding speed by 90%.",
-          "Reduced infra cost by 70% and tripled log retrieval speed by migrating logs to AWS S3.",
-          "Eliminated manual uploads via automated FTP ingestion and daily client summary emails.",
-          "Cut deployment time (10min → <1min) and reduced errors by 99.99% via Jenkins, Docker, Kubernetes automation.",
-          "Boosted QA coverage by 100% via automated OTP routing for authentication testing.",
-          "Enabled high-volume onboarding via RabbitMQ queues and batched SQL updates to avoid table locks."
+          "Designed and deployed a PII encryption system securing 20+ sensitive client data fields, ensuring compliance with data protection standards.",
+          "Engineered a distributed batch processing system for Excel ingestion, reducing manual effort by 95% and onboarding time by 90%.",
+          "Migrated application logs to AWS S3, reducing storage costs by 40% and tripling retrieval speed.",
+          "Optimized CI/CD pipelines with Jenkins, Docker, and Kubernetes, cutting deployment time from 10+ minutes to under 1 minute.",
+          "Partnered with a 14-member integration team to onboard Star Health insurer data, streamlining workflows using RabbitMQ queues and batched SQL updates."
         ]
       },
     ];
