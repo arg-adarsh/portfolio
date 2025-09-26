@@ -36,7 +36,7 @@ export const HeroSection = () => {
             alt="Adarsh Raj Gautam"
             width={800}
             height={800}
-            className="rounded-lg shadow-2xl w-full max-w-[300px] lg:max-w-[500px]"
+            className="rounded-lg shadow-2xl w-full max-w-[400px] lg:max-w-[600px]"
             data-ai-hint="professional portrait"
           />
       </div>
