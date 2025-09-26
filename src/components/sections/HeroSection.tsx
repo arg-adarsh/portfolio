@@ -34,8 +34,8 @@ export const HeroSection = () => {
          <Image 
             src="https://picsum.photos/800/800"
             alt="Adarsh Raj Gautam"
-            width={100}
-            height={100}
+            width={800}
+            height={800}
             className="rounded-lg shadow-2xl w-full max-w-[300px] lg:max-w-[500px]"
             data-ai-hint="professional portrait"
           />
